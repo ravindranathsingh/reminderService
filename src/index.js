@@ -6,6 +6,7 @@ const db = require('./models/index')
 
 const { PORT } = require('./config/server-config')
 const apiRoutes = require('./routes/index')
+const { sendBasicEmail } = require('./service/email-service')
 
 const ServerSetUp = () => {
 
@@ -19,6 +20,12 @@ const ServerSetUp = () => {
         if(process.env.DB_SYNC) {
             db.sequelize.sync({alter: true})
         }
+        sendBasicEmail(
+            'support@admin.com',
+            'rs9515806@gmail.com',
+            'This is a test email',
+            'Hey, I hope you liked the support that has been provided'
+        )
     })
 }
 
