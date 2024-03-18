@@ -6,7 +6,7 @@ const apiRoutes = require('./routes/index')
 const db = require('./models/index')
 const jobs = require('./utils/job')
 
-const ServerSetUp = () => {
+const ServerSetUp = async () => {
 
     const app = express();
 
